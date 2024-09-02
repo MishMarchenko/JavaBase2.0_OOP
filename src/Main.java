@@ -5,6 +5,7 @@ import Inheritence.Cat;
 import Inheritence.Duck;
 import Nested.Calc;
 import Nested.Season;
+import Nested.Time;
 import Nested.Url;
 
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 //        Pet pet = new Pet("Bobik", 8);
 //        Pet pet3 = new Pet("Bobik", 8);
 //        Pet pet1 = new Pet();
@@ -89,9 +91,29 @@ public class Main {
 //            System.out.println(Url.Selenium.getValue());
 //        } else {
 //            System.out.println("Unknown env");
-
-        System.out.println(Calc.SUM.action(10, 12));
-        System.out.println(Calc.SUBTRACT.action(10, 12));
-        System.out.println(Calc.MULTIPLY.action(10, 12));
+        int a = scanner.nextInt();
+        if (a >= 7 && a < 12){
+            System.out.println(Time.BREAKFAST.getValue());
+        } else if (a >= 12 && a <= 17) {
+            System.out.println(Time.DINNER.getValue());
+        } else if (a > 17 && a <= 24) {
+            System.out.println(Time.SUPPER.getValue());
+        } else {
+            System.out.println(Time.SLEEP.getValue());
+        }
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        char ch = scanner.next().charAt(0);
+        if (ch == '+') {
+            System.out.println(Calc.SUM.action(b, c));
+        } else if (ch == '-') {
+            System.out.println(Calc.SUBTRACT.action(b, c));
+        } else if (ch == '*') {
+            System.out.println(Calc.MULTIPLY.action(b, c));
+        } else if (ch == '/') {
+            System.out.println(Calc.DEVIDE.action(b, c));
+        } else if (ch == 'p') {
+            System.out.println(Calc.POW.action(b, c));
+        }
     }
 }
